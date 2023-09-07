@@ -1,0 +1,8 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "testpasswd"
+      POSTGRES_DB: "test-database"
+    ports:
+      - "5432:5432"

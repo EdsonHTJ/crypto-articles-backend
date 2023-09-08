@@ -22,6 +22,10 @@ class Database:
         self.client[self.db][self.collection].insert_one(data)
         pass
 
+    def update_one(self, id: str, data: dict):
+        self.client[self.db][self.collection].update_one(
+            {"_id": id}, {"$set": data})
+
     def get_one(self):
         return self.client[self.db][self.collection].find_one({"klv_sentiment": "undefined"})
 

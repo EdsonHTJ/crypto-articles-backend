@@ -79,3 +79,7 @@ def update_article():
         return jsonify({"message": "Article inserted successfully"}), 201
     except Exception as e:
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+
+if __name__ == '__main__':
+    app.run()

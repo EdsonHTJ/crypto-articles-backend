@@ -76,7 +76,7 @@ def update_article():
 
     # Insert the article into MongoDB
     try:
-        db.update_one(data_insert)
+        db.update_one(data['_id'], data_insert)
         return jsonify({"message": "Article inserted successfully"}), 201
     except Exception as e:
         print(e)

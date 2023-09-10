@@ -28,6 +28,18 @@ def getAllArticles():
     return response
 
 
+@app.route('/download/evaluated')
+def getEvaluatedArticles():
+    docs = db.get_valid_sentiment()
+    df = pd.DataFrame(list(docs))
+    csv_data = df.to_csv(index=False)
+
+    response = Response(csv_data, content_type="text/csv")
+    response.headers["Content-Disposition"] = "attachment; filename=data.csv"
+
+    return response
+
+
 @app.route('/insert_article', methods=['POST'])
 def insert_article():
     # Extract data from the request

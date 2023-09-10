@@ -39,3 +39,6 @@ class Database:
 
     def get_all(self):
         return self.client[self.db][self.collection].find({})
+
+    def get_valid_sentiment(self):
+        return self.client[self.db][self.collection].find({"klv_sentiment": {"$ne": "undefined"}})

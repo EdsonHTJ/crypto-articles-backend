@@ -60,13 +60,14 @@ def update_article():
     data = request.json
 
     # Validate the data (very basic validation for the sake of this example)
-    required_fields = ['id', 'title', 'sentiment', 'klv_sentiment', 'category']
+    required_fields = ['_id', 'title',
+                       'sentiment', 'klv_sentiment', 'category']
 
     if not all(field in data for field in required_fields):
         return jsonify({"error": "Missing required fields"}), 400
 
     data_insert: dict = {
-        '_id': data['id'],
+        '_id': data['_id'],
         'title': data['title'],
         'sentiment': data['sentiment'],
         'klv_sentiment': data['klv_sentiment'],

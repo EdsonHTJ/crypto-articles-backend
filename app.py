@@ -79,6 +79,7 @@ def update_article():
         db.update_one(data_insert)
         return jsonify({"message": "Article inserted successfully"}), 201
     except Exception as e:
+        print(e)
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
